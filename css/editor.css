@@ -1,0 +1,25 @@
+.editor-container {
+    width: 100%;
+    height: 100%;
+}
+
+.editor-container.hide {
+    display: none;
+}
+
+/* 下線のみ表示 */
+.monaco-editor .view-overlays .current-line-exact {
+  border-top:  1px solid rgba(238, 104, 250, 0) !important;
+  border-right:  1px solid rgba(238, 104, 250, 0) !important;
+  /* border-left:  2px solid rgba(238, 104, 250, 0) !important; */
+  border-left:  none !important;
+  border-bottom: 1px solid rgba(238, 104, 250, 0.3) !important;
+  
+}
+
+.monaco-editor .margin-view-overlays .current-line.current-line-margin-both {
+  border-bottom: 1px solid rgba(238, 104, 250, 0.3) !important;
+}
+.monaco-editor .inputarea.ime-input {
+  background-color: rgba(0, 0, 0, 0) !important;
+}

@@ -1,0 +1,25 @@
+.menuBorder {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 8px;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9900;
+}
+
+/*sliderbar*/
+.menuBorder:hover {
+    cursor: col-resize;
+    z-index: 9900;
+}
+
+.menuBorder.drag {
+    background-color: rgba(22, 152, 240, 0.322);
+    z-index: 9900;
+    opacity: 0.5;
+}
+
+.slidebar.hidden {
+    display: none;
+}

@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Ricty Diminished Discord';
+    src: url('../font/RictyDiminishedDiscord-Bold.woff2') format('woff2'),
+        url('../font/RictyDiminishedDiscord-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ricty Diminished';
+    src: url('../font/RictyDiminished-Bold.woff2') format('woff2'),
+        url('../font/RictyDiminished-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ricty Diminished';
+    src: url('../font/RictyDiminished-BoldOblique.woff2') format('woff2'),
+        url('../font/RictyDiminished-BoldOblique.woff') format('woff');
+    font-weight: bold;
+    font-style: oblique;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ricty Diminished Discord';
+    src: url('../font/RictyDiminishedDiscord-Oblique.woff2') format('woff2'),
+        url('../font/RictyDiminishedDiscord-Oblique.woff') format('woff');
+    font-weight: normal;
+    font-style: oblique;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ricty Diminished Discord';
+    src: url('../font/RictyDiminishedDiscord-Regular.woff2') format('woff2'),
+        url('../font/RictyDiminishedDiscord-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ricty Diminished';
+    src: url('../font/RictyDiminished-Oblique.woff2') format('woff2'),
+        url('../font/RictyDiminished-Oblique.woff') format('woff');
+    font-weight: normal;
+    font-style: oblique;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ricty Diminished Discord';
+    src: url('../font/RictyDiminishedDiscord-BoldOblique.woff2') format('woff2'),
+        url('../font/RictyDiminishedDiscord-BoldOblique.woff') format('woff');
+    font-weight: bold;
+    font-style: oblique;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ricty Diminished';
+    src: url('../font/RictyDiminished-Regular.woff2') format('woff2'),
+        url('../font/RictyDiminished-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

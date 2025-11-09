@@ -1,0 +1,36 @@
+:root {
+
+  --border-width :1px;
+  --border-height: 1px;
+
+  --header-width: 100vw;
+  --header-height: 60px;
+  --header-padding-inline: 20px; /* 追加：ヘッダーの左右パディング */
+  
+  --sidemenu-width: 190px;
+  --sidemenu-height: calc(100vh - var(--header-height));
+
+  --editor-footer-height: 2rem;
+  
+
+  --editor-width: calc(100vw - var(--sidemenu-width));
+  --editor-height: calc(100vh - var(--header-height) - var(--editor-footer-height));
+
+  --background-color: rgb(153, 153, 153); ;
+  --border-color: var(--background-color);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;  
+    /*全要素のマージン・パディングをリセット*/
+}
+
+.editor-container, .editor-container * {
+  font-size: revert; /* その要素の作者スタイルを無効化（モダンブラウザ） */
+  font-family: revert; /* その要素の作者スタイルを無効化（モダンブラウザ） */
+  font-weight: revert;
+  font-style: revert;
+}

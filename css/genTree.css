@@ -1,0 +1,14 @@
+/* https://github.com/rinoyod/genTree */
+.genTree { margin: 0px; padding: 0px; }
+.genTree.pl { overflow: hidden auto;  }
+.genTree .row { width: 100%; position: absolute; cursor: pointer; }
+.genTree .indent { height: 100%; float: left; }
+.genTree .icon-open { background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJfeDMyXyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0id2lkdGg6IDE2cHg7IGhlaWdodDogMTZweDsgb3BhY2l0eTogMTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+CS5zdDB7ZmlsbDojNEI0QjRCO308L3N0eWxlPjxnPgk8cG9seWdvbiBjbGFzcz0ic3QwIiBwb2ludHM9IjQ0MC4xODksOTIuMDg1IDI1Ni4wMTksMjc2LjI1NSA3MS44Myw5Mi4wODUgMCwxNjMuOTE1IDI1Ni4wMTksNDE5LjkxNSA1MTIsMTYzLjkxNSAiIHN0eWxlPSJmaWxsOiByZ2IoNzUsIDc1LCA3NSk7Ij48L3BvbHlnb24+PC9nPjwvc3ZnPg=="); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px 10px; }
+.genTree .icon-close { background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJfeDMyXyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0id2lkdGg6IDE2cHg7IGhlaWdodDogMTZweDsgb3BhY2l0eTogMTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+CS5zdDB7ZmlsbDojNEI0QjRCO308L3N0eWxlPjxnPgk8cG9seWdvbiBjbGFzcz0ic3QwIiBwb2ludHM9IjE2My45MTYsMCA5Mi4wODQsNzEuODIyIDI3Ni4yNTgsMjU1Ljk5NiA5Mi4wODQsNDQwLjE3OCAxNjMuOTE2LDUxMiA0MTkuOTE2LDI1NS45OTYgIiBzdHlsZT0iZmlsbDogcmdiKDc1LCA3NSwgNzUpOyI+PC9wb2x5Z29uPjwvZz48L3N2Zz4="); background-repeat: no-repeat; background-position: right 5px center; background-size: 10px 10px; }
+.genTree .row-content { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.genTree .row-text { white-space: nowrap; }
+.genTree { background: white; color: rgb(33, 37, 41); }
+.genTree::-webkit-scrollbar { width: 12px; height: 12px; }
+.genTree::-webkit-scrollbar-thumb { background: rgb(168, 158, 158); }
+.genTree::-webkit-scrollbar-track { background: rgb(224, 216, 216); }
+.genTree::-webkit-scrollbar-corner { background: rgba(184, 182, 182, 0); }

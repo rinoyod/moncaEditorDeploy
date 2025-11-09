@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+      <script>self["MonacoEnvironment"] = (function (paths) {
+          return {
+            globalAPI: false,
+            getWorkerUrl : function (moduleId, label) {
+              var result =  paths[label];
+              if (/^((http:)|(https:)|(file:)|(\/\/))/.test(result)) {
+                var currentUrl = String(window.location);
+                var currentOrigin = currentUrl.substr(0, currentUrl.length - window.location.hash.length - window.location.search.length - window.location.pathname.length);
+                if (result.substring(0, currentOrigin.length) !== currentOrigin) {
+                  var js = '/*' + label + '*/importScripts("' + result + '");';
+                  var blob = new Blob([js], { type: 'application/javascript' });
+                  return URL.createObjectURL(blob);
+                }
+              }
+              return result;
+            }
+          };
+        })({
+  "editorWorkerService": "./monaco-editor-workers/editor.worker.bundle.js",
+  "typescript": "./monaco-editor-workers/ts.worker.bundle.js",
+  "json": "./monaco-editor-workers/json.worker.bundle.js",
+  "css": "./monaco-editor-workers/css.worker.bundle.js",
+  "html": "./monaco-editor-workers/html.worker.bundle.js",
+  "javascript": "./monaco-editor-workers/ts.worker.bundle.js",
+  "less": "./monaco-editor-workers/css.worker.bundle.js",
+  "scss": "./monaco-editor-workers/css.worker.bundle.js",
+  "handlebars": "./monaco-editor-workers/html.worker.bundle.js",
+  "razor": "./monaco-editor-workers/html.worker.bundle.js"
+});</script>
+
+        <meta charset="utf-8">
+        <meta property="og:title" content="monaca editor" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://monaca-editor.netlify.app/editor.html" />
+        <meta property="og:image" content="https://monaca-editor.netlify.app/editor/edit_icon.png" />
+        <meta property="og:site_name" content="monaca editor" />
+        <meta property="og:description" content="ブラウザで動作するちょっとだけリッチなフリーのテキストエディタ" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/><!--IE対策：互換表示させない。-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="ブラウザで動作するちょっとだけリッチなフリーのテキストエディタ">
+        <meta  name="keywords" content="JavaScript,HTML5,Chrome,ServiceWorker,PWA,text,editor,テキスト,エディタ">
+        <title> monaca editor </title>
+    
+            <link rel="stylesheet" href="./css/variables.css">
+            <link rel="stylesheet" href="./css/index.css">
+            <link rel="stylesheet" href="./css/icon.css">
+            <link rel="stylesheet" href="./css/genTree.css">
+            <link rel="stylesheet" href="./css/editor.css">
+            <link rel="stylesheet" href="./css/sliderbar.css">
+            <link rel="stylesheet" href="./css/monacaDecorations.css">
+            <link rel="preload" href="./css/font.css" as="style" onload="this.rel='stylesheet'">
+            
+          <script type="module" crossorigin src="./assets/index-h4sqSnBZ.js"></script>
+          <link rel="modulepreload" crossorigin href="./assets/monaco-Bulsg0Ag.js">
+          <link rel="stylesheet" crossorigin href="./assets/monaco-GL-q52Lm.css">
+        </head>
+    <body>
+    <div id="header" class="header">
+        <div class="header-left">
+            <div id="icon-list-toggle" class="icon-wrapper"><div id=icon-list-toggle-img class="icon sidemenu-close"></div></div>
+            <div id="icon-file-open" class="icon-wrapper"><div class="icon file-open"></div></div>
+            <div id="icon-new-file" class="icon-wrapper"><div class="icon new-file"></div></div>
+            <div id="icon-save-file" class="icon-wrapper"><div class="icon save-file"></div></div>
+        </div>
+        <div class="header-center"></div>
+        <div class="header-right"></div>
+    </div>
+    <div id="sidemenu" class="sidemenu">
+        <div class="menuBorder slidebar" id='listBorder'></div>
+    </div>
+    
+    <div id="editor" class="editor">
+        
+
+    </div>
+    <div id="editor-footer" class="editor-footer">
+        <div class="editor-footer-left">line:<span id="rectLine"></span>&nbsp;number:<span id="rectNumber"></span>&nbsp;<span id="editorLanguage"></span></div>
+        <div class="editor-footer-center"></div>
+        <div class="editor-footer-right"></div>
+    </div>
+    </body>
+    
+
+
+    
+    
+
+    
+
+</html>

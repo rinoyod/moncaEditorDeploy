@@ -1,0 +1,54 @@
+/**
+ * monacaDecorations.css
+ * 
+ * CSS for Monaca Editor decorations
+ */
+
+.editorlineEnd::after{
+    /*color : rgb(13, 189, 243);*/
+    color: #c71585;
+    /*font-family: "Courier"; */
+     font-family: "Cambria";
+    /* font-weight: bold; */
+    content: "↓";
+}
+
+.editorEof::after{
+    /*color : rgb(13, 189, 243); */
+    color: #c71585;
+    font-family: "Lucida Console";
+    content: "←";
+    
+}
+
+.csvColor1{
+    color: #dc143c !important; 
+}
+
+.csvColor2{
+    color: #006400 !important; 
+}
+
+.csvColor3{
+    color: #0000cd !important; 
+}
+
+.csvColor4{
+    color: #cd853f !important; 
+}
+
+.dark-csvColor1{
+    color: #ff1493 !important; 
+}
+
+.dark-csvColor2{
+    color: #3dc9b0 !important; 
+}
+
+.dark-csvColor3{
+    color: #569cd6 !important; 
+}
+
+.dark-csvColor4{
+    color: #ce9178 !important; 
+}

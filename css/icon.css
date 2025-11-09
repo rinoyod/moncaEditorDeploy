@@ -1,0 +1,72 @@
+/* https://www.streamlinehq.com/icons/mingcute-line 
+#2f2f2f
+47,47,47,1
+24px
+*/
+
+
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    /* 枠線の角丸 */
+    border: 1px solid transparent;
+    /* 初期状態では透明 */
+}
+
+.icon-wrapper:hover {
+    border: 1px solid rgba(0, 0, 0, 0);
+    /* ホバー時に枠線を表示 */
+    cursor: pointer;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+  max-width: 1px; /* 必要に応じて調整 */
+  height: 1rem;
+
+}
+.header .icon-wrapper:hover {
+    border: 1px solid rgb(187, 187, 187);
+    /* ホバー時に枠線を表示 */
+    cursor: pointer;
+}
+
+/** サイドメニュー閉じるアイコン */
+.icon.sidemenu-close {
+    background-image: url('../img/icon/Layout-Leftbar-Close-Line--Streamline-Mingcute.svg');
+}
+/** サイドメニュー開くアイコン */
+.icon.sidemenu-close.toggle {
+    background-image: url('../img/icon/Layout-Leftbar-Open-Line--Streamline-Mingcute.svg');
+}
+
+/** ファイルを開くアイコン */
+.icon.file-open {
+    background-image: url('../img/icon/Folder-Line--Streamline-Mingcute.svg');
+}
+
+/** 新規ファイルアイコン */
+.icon.new-file {
+    background-image: url('../img/icon/File-New-Line--Streamline-Mingcute.svg');
+}
+
+/** ファイル保存アイコン */
+.icon.save-file {
+    background-image: url('../img/icon/Save-Line--Streamline-Remix.svg');
+}
+
+/** 保存済みファイルアイコン */
+.icon.saved-file {
+    background-image: url('../img/icon/File-Check-Line--Streamline-Mingcute.svg');
+}
