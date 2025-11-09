@@ -1,87 +1,80 @@
-const CACHE_VERSION = 'v1';
-const CACHE_NAME = `monaco-editor-cache-${CACHE_VERSION}`;
+const CACHE_VERSION = 'ver.2.0.a006';
+const CACHE_NAME = `sw-cache-${CACHE_VERSION}`;
 
-/**
- * キャッシュしない例外リスト（先頭一致 or RegExp）
- */
-const EXCLUDE_PATTERNS = [
-  '/api/',
-  '/auth/',
-  /^\/socket\/io/,
-];
-
-function isExcluded(request) {
-  try {
-    const url = new URL(request.url);
-    const pathname = url.pathname;
-    return EXCLUDE_PATTERNS.some(p => {
-      if (typeof p === 'string') return pathname.startsWith(p);
-      if (p instanceof RegExp) return p.test(pathname);
-      return false;
-    });
-  } catch (e) {
-    return false;
-  }
-}
+// 自分のドメイン（キャッシュ対象外）
+const ownDomain = self.location.origin;
 
 self.addEventListener('install', (event) => {
-  // プリキャッシュなし、ただちに activate 可能にする
-  event.waitUntil(self.skipWaiting());
+  console.log('SW: Install');
+  // 即座にアクティベート
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
-  // 古いキャッシュを削除してクライアントを制御
+  console.log('SW: Activate');
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.map(key => key !== CACHE_NAME ? caches.delete(key) : Promise.resolve())
-      )
-    ).then(() => self.clients.claim())
+    Promise.all([
+      // 古いキャッシュを削除
+      caches.keys().then((cacheNames) => {
+        return Promise.all(
+          cacheNames
+            .filter(cacheName => cacheName.startsWith('sw-cache-') && cacheName !== CACHE_NAME)
+            .map(cacheName => {
+              console.log('SW: Deleting cache', cacheName);
+              return caches.delete(cacheName);
+            })
+        );
+      }),
+      // 全てのクライアントを制御下に置く
+      self.clients.claim()
+    ])
   );
 });
 
 self.addEventListener('fetch', (event) => {
-  const req = event.request;
-
-  // 非GETはネットワーク優先（キャッシュしない）
-  if (req.method !== 'GET') {
-    event.respondWith(
-      fetch(req).catch(() => new Response('Network error', { status: 503 }))
-    );
+  const requestUrl = new URL(event.request.url);
+  
+  // 開発環境かどうかの判定を修正
+  const isDevelopment = ownDomain.includes('127.0.0.1') || ownDomain.includes('localhost');
+  const isOwnDomain = requestUrl.origin === ownDomain;
+  
+  // 開発環境では自分のドメインはキャッシュしない
+  if (isDevelopment && isOwnDomain) {
+    console.log('SW: Skip cache (dev mode):', requestUrl.href);
+    event.respondWith(fetch(event.request));
     return;
   }
-
-  // 例外パスはキャッシュしない（ネットワーク優先）。ネットワーク失敗時はキャッシュフォールバックを試す。
-  if (isExcluded(req)) {
+  
+  // 外部リソースのみキャッシュ
+  if (!isOwnDomain) {
     event.respondWith(
-      fetch(req)
-        .then(networkRes => networkRes)
-        .catch(() => caches.match(req).then(cached => cached || new Response('Offline', { status: 503 })))
+      caches.match(event.request)
+        .then((cachedResponse) => {
+          if (cachedResponse) {
+            console.log('SW: From cache:', requestUrl.href);
+            return cachedResponse;
+          }
+          
+          console.log('SW: Fetching:', requestUrl.href);
+          return fetch(event.request.clone())
+            .then((response) => {
+              // 成功レスポンスのみキャッシュ
+              if (response && response.status === 200 && response.type === 'basic') {
+                const responseToCache = response.clone();
+                caches.open(CACHE_NAME).then((cache) => {
+                  cache.put(event.request, responseToCache);
+                });
+              }
+              return response;
+            })
+            .catch((error) => {
+              console.error('SW: Fetch failed:', error);
+              throw error;
+            });
+        })
     );
-    return;
-  }
-
-  // 例外でなければキャッシュ優先（なければネットワーク取得してキャッシュに保存）
-  event.respondWith(
-    caches.match(req).then(cached => {
-      if (cached) return cached;
-      return fetch(req).then(networkRes => {
-        if (networkRes && networkRes.status === 200) {
-          const clone = networkRes.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(req, clone));
-        }
-        return networkRes;
-      }).catch(() => {
-        // オフライン時のフォールバック（必要ならパスを調整）
-        return caches.match('/index.html') || new Response('Offline', { status: 503 });
-      });
-    })
-  );
-});
-
-// クライアントからのメッセージで即時アクティベートを許可
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
+  } else {
+    // 自分のドメインは通常通りフェッチ
+    event.respondWith(fetch(event.request));
   }
 });
