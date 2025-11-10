@@ -55,7 +55,7 @@ body::-webkit-scrollbar {  /* Chrome, Safari 対応 */
     left: 0px; /* ヘッダーの左内側（左下）に配置 */
     width: var(--sidemenu-width);
     height: var(--sidemenu-height);
-    background-color: #444;
+    /* background-color: #444; */
     color: white;
     padding: 0px;
     box-sizing: border-box;
@@ -121,7 +121,7 @@ body::-webkit-scrollbar {  /* Chrome, Safari 対応 */
     box-sizing: border-box;
     /* padding: 1rem; */
     overflow: auto;
-    background-color: #db6868; /* 必要に応じて変更 */
+    /* background-color: #db6868; /* 必要に応じて変更 */
     z-index: 900;
     border-bottom: var(--border-width) solid var(--border-color);
 }

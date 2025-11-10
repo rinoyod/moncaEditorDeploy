@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ver.2.0.a006';
+const CACHE_VERSION = 'ver.2.0.a007';
 const CACHE_NAME = `sw-cache-${CACHE_VERSION}`;
 
 // 自分のドメイン（キャッシュ対象外）
