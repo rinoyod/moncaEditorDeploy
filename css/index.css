@@ -98,11 +98,11 @@ body::-webkit-scrollbar {  /* Chrome, Safari 対応 */
 
 
 .sidemenu .row:hover{
-    background-color: #72fff33f;
+    background-color: rgba(94, 124, 255, 0.5);
     cursor: pointer;
 }
 .sidemenu .row.selected{
-    background-color: #72fff360;
+    background-color: rgb(94, 124, 255,1);
     cursor: pointer;
 }
 

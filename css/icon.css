@@ -4,13 +4,22 @@
 24px
 */
 
+/* 縦線のスタイル */
+.separator {
+    width: 1px;
+    height: 20px;
+    background-color: var(--border-color);
+    /* 縦線の色 */
+    margin: 0 0px;
+    /* アイコンとのスペース */
+}
 
 .icon-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     border-radius: 4px;
     /* 枠線の角丸 */
     border: 1px solid transparent;
@@ -69,4 +78,13 @@
 /** 保存済みファイルアイコン */
 .icon.saved-file {
     background-image: url('../img/icon/File-Check-Line--Streamline-Mingcute.svg');
+}
+
+/** 折り返しアイコン */
+.icon.word-wrap {
+    background-image: url('../img/icon/Return-Streamline-Carbon.svg');
+}
+
+.icon.word-wrap.on {
+    background-image: url('../img/icon/Return-Streamline-Carbon-blue.svg');
 }

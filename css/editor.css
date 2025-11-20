@@ -8,18 +8,55 @@
 }
 
 /* 下線のみ表示 */
+.monaco-editor{
+    --line-color:  rgb(238, 104, 250); 
+    --word-highlight-color: rgba(182, 226, 255, 0.3); /* 単語ハイライト色 */
+    --word-highlight-border: rgba(182, 226, 255, 0.3); /* 単語ハイライト境界線色 */
+}
+
 .monaco-editor .view-overlays .current-line-exact {
   border-top:  1px solid rgba(238, 104, 250, 0) !important;
   border-right:  1px solid rgba(238, 104, 250, 0) !important;
   /* border-left:  2px solid rgba(238, 104, 250, 0) !important; */
   border-left:  none !important;
-  border-bottom: 1px solid rgba(238, 104, 250, 0.3) !important;
+  border-bottom: 1px solid var(--line-color) !important;
   
 }
 
 .monaco-editor .margin-view-overlays .current-line.current-line-margin-both {
-  border-bottom: 1px solid rgba(238, 104, 250, 0.3) !important;
+  border-bottom: 1px solid var(--line-color) !important;
 }
 .monaco-editor .inputarea.ime-input {
   background-color: rgba(0, 0, 0, 0) !important;
+}
+
+
+/* 同じ単語のハイライト（背景色） */
+.monaco-editor .wordHighlightText {
+    background-color: var(--word-highlight-color) !important;
+    border: 1px solid var(--word-highlight-border) !important;
+}
+
+/* より強いハイライト（書き込み時など） */
+.monaco-editor .wordHighlightStrong {
+    background-color: rgba(238, 104, 250, 0.5) !important;
+    border: 1px solid rgba(238, 104, 250, 1) !important;
+}
+
+/* 検索時のハイライト */
+.monaco-editor .findMatch {
+    background-color: rgba(65, 253, 122, 0.733) !important;
+    border: 1px solid rgba(65, 253, 122, 0.733) !important;
+}
+
+/* 現在の検索マッチ */
+.monaco-editor .currentFindMatch {
+    background-color: rgba(255, 165, 0, 0.6) !important;
+    border: 2px solid rgba(255, 165, 0, 1) !important;
+}
+
+/* 選択された単語のハイライト */
+.monaco-editor .selectionHighlight {
+    background-color: rgba(238, 104, 250, 0.2) !important;
+    border: 1px solid rgba(238, 104, 250, 0.6) !important;
 }
