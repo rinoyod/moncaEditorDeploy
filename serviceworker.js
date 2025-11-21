@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ver.2.0.a007-a';
+const CACHE_VERSION = 'ver.2.0.a008';
 const CACHE_NAME = `sw-cache-${CACHE_VERSION}`;
 
 // 自分のドメイン（キャッシュ対象外）
@@ -39,14 +39,14 @@ self.addEventListener('fetch', (event) => {
   const isOwnDomain = requestUrl.origin === ownDomain;
   
   // 開発環境では自分のドメインはキャッシュしない
-  if (isDevelopment && isOwnDomain) {
+  if (isDevelopment) {
     console.log('SW: Skip cache (dev mode):', requestUrl.href);
     event.respondWith(fetch(event.request));
     return;
   }
   
   // 外部リソースのみキャッシュ
-  if (!isOwnDomain) {
+  if (!isDevelopment) {
     event.respondWith(
       caches.match(event.request)
         .then((cachedResponse) => {
