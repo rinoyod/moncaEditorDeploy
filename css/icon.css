@@ -1,6 +1,5 @@
-/* https://www.streamlinehq.com/icons/mingcute-line 
-#2f2f2f
-47,47,47,1
+/* https://iconpark.oceanengine.com/official
+#7c7c7c
 24px
 */
 
@@ -53,38 +52,72 @@
 
 /** サイドメニュー閉じるアイコン */
 .icon.sidemenu-close {
-    background-image: url('../img/icon/Layout-Leftbar-Close-Line--Streamline-Mingcute.svg');
+    background-image: url('../img/icon/line/expand-right.svg');
 }
 /** サイドメニュー開くアイコン */
 .icon.sidemenu-close.toggle {
-    background-image: url('../img/icon/Layout-Leftbar-Open-Line--Streamline-Mingcute.svg');
+    background-image: url('../img/icon/line/expand-left.svg');
 }
 
 /** ファイルを開くアイコン */
 .icon.file-open {
-    background-image: url('../img/icon/Folder-Line--Streamline-Mingcute.svg');
+    background-image: url('../img/icon/line/folder-open.svg');
 }
 
 /** 新規ファイルアイコン */
 .icon.new-file {
-    background-image: url('../img/icon/File-New-Line--Streamline-Mingcute.svg');
+    background-image: url('../img/icon/line/file-addition-one.svg');
 }
 
 /** ファイル保存アイコン */
 .icon.save-file {
-    background-image: url('../img/icon/Save-Line--Streamline-Remix.svg');
+    background-image: url('../img/icon/line/save-one.svg');
 }
 
 /** 保存済みファイルアイコン */
 .icon.saved-file {
-    background-image: url('../img/icon/File-Check-Line--Streamline-Mingcute.svg');
+    background-image: url('../img/icon/line/save-one.svg');
 }
 
 /** 折り返しアイコン */
 .icon.word-wrap {
-    background-image: url('../img/icon/Return-Streamline-Carbon.svg');
+    background-image: url('../img/icon/line/paragraph-break-two.svg');
 }
 
 .icon.word-wrap.on {
-    background-image: url('../img/icon/Return-Streamline-Carbon-blue.svg');
+    background-image: url('../img/icon/muluti-color/paragraph-break-two.svg');
+}
+
+
+/* 録音（マクロ）アイコン - デフォルト */
+.icon.macro {
+    /* 既存アイコンに合わせたサイズ/表示 */
+    background-image: url('../img/icon/line/play-one.svg');
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+/* 録音中やアクティブ状態の見た目（カラーバージョン） */
+.icon.macro.recording {
+    background-image: url('../img/icon/muluti-color/play-one.svg');
+}
+
+/* 任意：録音中にアニメーションさせたい場合の例 */
+.icon.macro.recording::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    /* 半透明のエフェクト */
+    box-shadow: 0 0 0 rgba(255, 0, 0, 0.4);
+    animation: macro-pulse 1.2s infinite;
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+@keyframes macro-pulse {
+    0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255,0,0,0.4); }
+    70% { transform: scale(1.2); box-shadow: 0 0 0 10px rgba(255,0,0,0); }
+    100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255,0,0,0); }
 }
