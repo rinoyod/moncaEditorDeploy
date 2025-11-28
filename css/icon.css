@@ -88,6 +88,15 @@
     background-image: url('../img/icon/muluti-color/paragraph-break-two.svg');
 }
 
+/* マクロファイルオープン */
+.icon.macro-open {
+    background-image: url('../img/icon/line/folder-code.svg');
+}
+
+/* マクロファイル新規オープン */
+.icon.macro-new {
+    background-image: url('../img/icon/line/file-code-one.svg');
+}
 
 /* 録音（マクロ）アイコン - デフォルト */
 .icon.macro {
