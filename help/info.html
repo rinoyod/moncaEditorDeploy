@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<style>
+    @font-face {
+    font-family: "BIZ UDGothic";
+    src: url("../../font/BIZUDGothic-Regular.ttf") format("truetype");
+}
+
+#preview-container {
+    color: #262626;
+    word-wrap: break-word;
+    font-family: "BIZ UDGothic";
+
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #1b1b1b;
+    }
+
+    h1 {
+        padding-bottom: .3em;
+        font-size: 2em;
+        border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+        margin: .67em 0;
+        display: block;
+    }
+
+    h2 {
+        padding-bottom: .3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+        display: block;
+
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+
+    }
+
+    h3 {
+        font-size: 1.25em;
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+
+    }
+
+    h4 {
+        font-size: 1em;
+        display: block;
+        margin-block-start: 1.33em;
+        margin-block-end: 1.33em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+    h5 {
+        font-size: .875em;
+        display: block;
+        margin-block-start: 1.67em;
+        margin-block-end: 1.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+    h6 {
+        font-size: .85em;
+        display: block;
+        margin-block-start: 2.33em;
+        margin-block-end: 2.33em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+    }
+
+    .highlight pre,
+    pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 6px;
+    }
+
+    pre {
+        word-wrap: normal;
+        font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+        white-space: pre;
+        margin: 1em 0px;
+        border: 1px solid #e5e5e5;
+    }
+
+    p,
+    blockquote,
+    ul,
+    ol,
+    dl,
+    table,
+    pre,
+    details {
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+
+    pre code,
+    pre tt {
+        display: inline;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+    }
+
+    pre>code {
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+    }
+
+    code {
+        padding: .2em .4em;
+        margin: 0;
+        /* font -size: 85%; */
+        white-space: break-spaces;
+        background-color: #818b981f;
+        border-radius: 6px;
+    }
+
+    pre code {
+        font-size: 100%;
+        font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    }
+
+    code,
+    tt {
+        border-radius: 6px;
+    }
+
+
+    ul,
+    ol {
+        padding-left: 2em;
+    }
+
+    table {
+        display: block;
+        width: max-content;
+        max-width: 100%;
+        overflow: auto;
+        border-spacing: 0;
+        border-collapse: collapse;
+
+    }
+
+
+
+    table tr {
+        background-color: #ffffff;
+        border-top: 1px solid hsla(210, 18%, 87%, 1);
+    }
+
+    table th,
+    table td {
+        padding: 6px 13px;
+        border: 1px solid #d0d7de;
+    }
+
+    table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+    }
+
+    blockquote {
+        padding: 0 1em;
+        border-left: .25em solid #d0d7de;
+        margin: 0;
+        font-size: 0.8em;
+        font-style: italic;
+        color: #4d4d4d;
+    }
+
+    ul {
+        display: block;
+        list-style-type: disc;
+        /* padding-left: 17px; */
+        margin: 6px 0 10px;
+
+    }
+
+    .task-list-item {
+        border: 0;
+        list-style: none;
+        padding-left: 22px;
+        margin-left: -22px;
+    }
+
+    ul li.task-list-item:before {
+        content: "";
+    }
+
+    ol li,
+    ul li {
+        line-height: 160%;
+        box-sizing: content-box;
+    }
+
+    ol li,
+    ul li {
+        position: relative;
+    }
+
+    :not(table) {
+        line-height: 160%;
+        box-sizing: content-box;
+    }
+
+    .task-list-item.checked:before {
+        /* background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAMpJREFUKBVjjJ/64D8DGYCJDD1gLbTVyM3OxJDiJMzAxcYIdyALnIWDAdJU7i/OICfCxsDMxMgwc88bwk5F1vTs/W+GFUffwY2H+1FBlI2hLliCQYCbGSyJrqlzwwuGj9//YWoMtRBgUBJnZ6gMEGeQFWaFOw9kE7omkG5GWDyCPF7mJ86gIMbO8P//fwZGRkYGXJpAGuFO/fbrP0PXppcMD179JKgJRSOIA9N8/NZXrM4DqYEBjOgAaYYFOUwRNhruVGyS+MTI1ggAx8NTGcUtFVQAAAAASUVORK5CYII=); */
+    }
+
+    .task-list-item:before {
+        background-repeat: no-repeat;
+        background-size: 16px 16px;
+        background-position: center;
+
+        height: 18px;
+        width: 18px;
+        position: absolute;
+        left: 0;
+        top: 5px;
+        cursor: pointer;
+        /* background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAADdJREFUKBVjvHv37n8GMgALSI+SkhJJWu/du8fARJIOJMWjGpECA505GjjoIYLEB6dVUNojFQAA/1MJUFWet/4AAAAASUVORK5CYII=); */
+    }
+
+    .hljs {
+        display: block;
+        overflow-x: auto;
+        padding: 0.5em;
+        color: #333;
+        background: #f8f8f8
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+        color: #998;
+        font-style: italic
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-subst {
+        color: rgb(44, 11, 133);
+        font-weight: bold
+    }
+
+    .hljs-number,
+    .hljs-literal,
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-tag .hljs-attr {
+        color: #008080
+    }
+
+    .hljs-string,
+    .hljs-doctag {
+        color: #d14
+    }
+
+    .hljs-title,
+    .hljs-section,
+    .hljs-selector-id {
+        color: #900;
+        font-weight: bold
+    }
+
+    .hljs-subst {
+        font-weight: normal
+    }
+
+    .hljs-type,
+    .hljs-class .hljs-title {
+        color: #458;
+        font-weight: bold
+    }
+
+    .hljs-tag,
+    .hljs-name,
+    .hljs-attribute {
+        color: #000080;
+        font-weight: normal
+    }
+
+    .hljs-regexp,
+    .hljs-link {
+        color: #009926
+    }
+
+    .hljs-symbol,
+    .hljs-bullet {
+        color: #990073
+    }
+
+    .hljs-built_in,
+    .hljs-builtin-name {
+        color: #006283
+    }
+
+    .hljs-meta {
+        color: #999;
+        font-weight: bold
+    }
+
+    .hljs-deletion {
+        background: #fdd
+    }
+
+    hr {
+        height: .25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #d0d7de;
+        border: 0;
+    }
+
+    a {
+        color: #0969da;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    img {
+        max-width: 100%;
+        height: 100%;
+    }
+}
+
+/*
+tt, code, samp {
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+}
+
+*/
+
+
+
+
+/*    
+em {
+    font-style: italic;
+}
+*/
+
+/*
+strong {
+    font-weight: 600;
+}
+*/
+
+
+
+
+
+/*
+.markdown-body blockquote>:first-child{
+    margin-top: 0;
+}
+    */
+
+</style>
+
+<body id="preview-container">
+    <h1 class="" data-line="1,1">monaca Editor</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="" data-line="3,12"><thead><tr class="" data-line="3,3"><th>アイコン</th><th>説明</th></tr></thead><tbody><tr class="" data-line="5,5"><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAaCAYAAABLlle3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADzSURBVEhL7ZaxjYQwEEX/rq6AISK0KMgJJRjacERMB0AJJC4IOSSbDrhkV1pGs9JxXkOyL/wf6fFxgG/btm04mbsMzuAS6U37vOu6IoSAGKOsDmGMgbUWZVnucnXpJ4QAEGNECEHG+JEBHg8DQNd1u9x7r+bv8N6rL68uzc1XmpWPSJkZ0zSh73tZqSRLmRnzPGNZFhRFIWuVZOlTSERwzslaJVn6CjPLSCVZWtc1iAjMjHEcZa2SLCUiNE2DqqrOO1M8xM65a870r3ylWVFvDsMwqP/B/2CMQdu2u0xdaq2FMUbGh3leVyTq0tyoS3NzifQX915XaTbO0WkAAAAASUVORK5CYII=" alt="ClipboardImage"></td><td>ファイル一覧の表示/非表示</td></tr><tr class="" data-line="6,6"><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAaCAYAAABPY4eKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF9SURBVEhLxZUhjsJAFIY/aiAkJG0TBI5KBGI0Co7QI3CF0Sg0V+kBOASj0EgcjECg6Bogm7fTmQ7sLl+C+V+Tj9d5r9Op67rmQyQy+E8+Ku+4Xru1FmOMjJ+kaYpSSsbROOVVVXnl3P+A1lrGUTjlq9UKgMViIUsA7HY7rLUopSjLUpZb45Wv12tZgvuxbDYbAJRSZFkmHwFgPB5TFIWMn7wkBzDGUFWVjH9QlmXjfLwsJzCY5/MZYwxFUbBcLmUZ3l21NE2Zz+fOX1O33/F2rrVu9WpdXK9XjscjWZahlHKup1ee5zmn00mWX8K1ml55kiTcbjdGoxG9Xk8+1op+v89+v3eevVf+IDR4Ph5b4fomBAcuz3MZRXE4HACc+x6UDwYDGUXxlnwymcgoCmst3AdOEpTPZjMZtcbXNSH5u+ft65qQvNvtyiiKUOfeVRsOh0ynU1luzePq1Vo7u/fKf4um74RTvt1uuVwujfd0DL473Sn/L7wD99d8VP4FcBnBEyZHqDkAAAAASUVORK5CYII=" alt="ClipboardImage"></td><td>ファイルを開く</td></tr><tr class="" data-line="7,7"><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE6SURBVEhL7ZbBkUUwAIb/p4IYFSjBJWdSghJUYMbZydmogBKUkNwdKEELubjyLm+NBI/FeLuz+93yJ+abnwiPYRgG3IyhB3fwd6QP/Zk2TQPOOaSU03gVwzDgui48z9OnVpk1/Y4QAPq+R13XaJpGn1pl1jSOYwBAkiTTeJGvtQBACIHv+7BtW1mzxKzpERhjkFKiLMtdd+kSqeM4ozjP803xJdI0TcE5BwBIKZFlmb5E4ZTUcRw9Al6b6x2nNtISe64/1fQo/9LD+L6PIAj0WOG0tOs6CCHQdR3w2tFbp9JpaVVV4Jyjqip9apXT0iN8RHrocJh+XZawLAthGOrxyO9pOkUIAc45GGO7/x5+RtOiKNC27TRSIIQgiqJxfEnTrZfbNE1lTCkFYwyUUiV/x6zpHcya3sFHpE9+KI9P+3oUAgAAAABJRU5ErkJggg==" alt="ClipboardImage"></td><td>新規ファイル</td></tr><tr class="" data-line="8,8"><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAaCAYAAABLlle3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEFSURBVEhL7ZbRkYMgFEVvMikAO9ASoAPsAPvxy29bsAU6eHZAC5QgHbgfMZnMAxODEzM7u+fzCh4uM6CneZ5nHMyZB0fwFemJb6/3HuM4wnv/GL+FEAJFUUBrjaqq+OO46V4hAIQQ7otPceHBTdh1HbAsgohQ1zW01mz0lbZtgYc5IQT0fY9pmtjIK1HTrTjn4JzjMbBsLxZ5imyptRbWWh5vIlu6h98lNcbAGMPjTWRLlVJQSvF4E9GRWYOIQEQ8zuJl07IseZQkdfOsEV2D/KDn8uw9L5t+gn/pR/k70ujIDMOw+yN+Q0qJpml4HDdd+8V4FyEEpJQ8BlJNjyBqegRfkf4AGC9gLlIuhd8AAAAASUVORK5CYII=" alt="ClipboardImage"></td><td>名前を付けて保存/上書き保存</td></tr><tr class="" data-line="9,9"><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEeSURBVEhL7ZTBcYUgFEXvTwNCB1KClkQLrF25tgVKsATtAErADsQKzCLRUXwavyRm8f/Z+RjnzLtefIzjOOJmPsLBHbyO9EF9U2MMhmEIx5dIkgR5nq9mpLQoinAURVmWq2dS+i+b/jXvIoWjKN5FuhVy07PxLqNzzqHruvksTVNwzsEYW7zxBSl9pkhTSaqqgvc+PIZSaiMmpb+xqTEG3nsIISClXLy1I30G5xwAQAixmWutAeLKRBXJWgutNeq6Do/AOQeATbTY23Qv3mWc1tpZJoRYbdr3PZxz8N6DMQal1HyGPelRkX4qToiUchM9KT2zadu2aJoG+I4w/OswxpBl2Wo2QUrPMompCI+IkuKgvUdES68QdWWu8jrST8JF047211ooAAAAAElFTkSuQmCC" alt="ClipboardImage"></td><td>折り返しon/off</td></tr><tr class="" data-line="10,10"><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAYAAAAv3j5gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE6SURBVEhL3ZbRkYMgEIb/XAXbAiVQQiyBEqAE6pESKEFKoARKYDvwXpQRzogml8zNfW8ujN8uLOhtnucZH+CrDbyL/ye6tXvkvUeMcRuqUEpBStmGu1QVMfOhBEsizNyGu1QVhRAwTROGYcD9fq9nbsaJCMYYEFE75SGXRADgnENKqQ3vIoSAUgpEdL0ZtNYQQrThXVJKJanLFZ2lfdflip7l74mYGc45eO9LzDkH59ypdj8lYmZ476vNBYCcM1JKGMexK+uKthIigrW2jK1niZm7sq5oW4UxphojIiilgCWho/PVFQkhyg3QZs3MCCEAi/ToDuyKttfNuowrj5Z0j64IjWxLzhlCiK4EZ0VYZNZaaK1LrH0+4rToVT4mqi7VGGO12b/B+kWuKpJSVu38KlLK0vI//hnexTfCH8I2oX8PSgAAAABJRU5ErkJggg==" alt="ClipboardImage"></td><td>マクロファイルを開く</td></tr><tr class="" data-line="11,11"><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFGSURBVEhL7ZS7sYMwEEWvqUCUQAnqAChBJUAJxI6IGSqAElQCJaAS1IIqgJdYjLReAn6O3kmskYTP3GXZ17quK35EQjee5KeyF1dGYwymaYJzjh6xJEmCPM9RFAU9imCTHREBwLIsmOcZxhh6FMEme7/fAIC2benRF/4uAAghoJRClmXRHQ+b7AxlWcI5B631blVuk0kpN+EwDKzwNlnXdZimCQDgnEPf9/TKdZmUkm4Bn6ahXG4Qjr3nLyc7wr/sEEopVFVFt5+RSSnZKXJZ5pyDMWb7iMM15ZLMjyetNay1MMZAa33/BPEiay2EEFvphBC7I+u0LBQ1TQN8pn5d15Ew5LQshCZI0zT69ZyWKaXYkoWJafufltGS+QahpQ1hB/E4jrDW0u2N8M+8SEoZrTnYZHsfpSd8F74T6ZqDTfYUbLKn+AM7TMrGdn9VPAAAAABJRU5ErkJggg==" alt="ClipboardImage"></td><td>新規マクロファイル</td></tr><tr class="" data-line="12,12"><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAYAAAArdgcFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVEhL3ZRBdcQgEIb/7asALCCBOGAkYCESOEcCEhIJSAAJkUAkjIP0EngbdpOw7fbQfjdg3jfDDI/buq4rfomPeuOd/EN5SgnDMMB7D2auj5s4lC/LAgCY5xnjOCLGWIdccijPCCHAzAghwDn3UpJLedd1sNZCSrlLklKqQx+4lGOr3hgDIio38d4jxng6jyY5tgRaa/R9DyIqtzibR7M8k5NYa6GU2rWq5mX5PfctkVLuzvAdOTMjxliGKoQAEcEYU4fis944I8aIEEJZExG01ruYe5oqZ2Y454pYCAFr7akYAG5HX26uMj89bFIiglKqDn/KZeVZTETlhbRyWHlKCdM0QSn1dFgtHMrfwWVbfsLflX8BVUyKakipOqUAAAAASUVORK5CYII=" alt="ClipboardImage"></td><td>マクロファイルを指定して実行</td></tr></tbody></table>
+<h2 class="" data-line="14,14">マクロ</h2>
+<p class="" data-line="16,16">リファレンスは<a href="https://github.com/rinoyod/moncaEditorDeploy/blob/main/macroApi.md" target="_blank">こちら</a></p>
+</body>
+
+</html>

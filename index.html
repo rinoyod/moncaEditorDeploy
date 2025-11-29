@@ -34,14 +34,13 @@
         <meta charset="utf-8">
         <meta property="og:title" content="monaca editor" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://monaca-editor.netlify.app/editor.html" />
-        <meta property="og:image" content="https://monaca-editor.netlify.app/editor/edit_icon.png" />
         <meta property="og:site_name" content="monaca editor" />
         <meta property="og:description" content="ブラウザで動作するちょっとだけリッチなフリーのテキストエディタ" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/><!--IE対策：互換表示させない。-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="ブラウザで動作するちょっとだけリッチなフリーのテキストエディタ">
         <meta  name="keywords" content="JavaScript,HTML5,Chrome,ServiceWorker,PWA,text,editor,テキスト,エディタ">
+        <link rel="shortcut icon" type="image/svg+xml" sizes="any" href="img/icon/edit_icon.png" /> 
         <title> monaca editor </title>
     
             <link rel="stylesheet" href="./css/variables.css">
@@ -53,7 +52,7 @@
             <link rel="stylesheet" href="./css/monacaDecorations.css">
             <link rel="preload" href="./css/font.css" as="style" onload="this.rel='stylesheet'">
             
-          <script type="module" crossorigin src="./assets/index-Bl1ZOZdT.js"></script>
+          <script type="module" crossorigin src="./assets/index-gWkctQIo.js"></script>
           <link rel="modulepreload" crossorigin href="./assets/monaco-BcxQu92g.js">
           <link rel="stylesheet" crossorigin href="./assets/monaco-GL-q52Lm.css">
         </head>
@@ -70,10 +69,12 @@
             <!-- ここにマクロ用アイコンを追加 -->
             <div id="icon-macro-open" class="icon-wrapper"><div class="icon macro-open"></div></div>
             <div id="icon-macro-new" class="icon-wrapper"><div class="icon macro-new"></div></div>
-            <div id="icon-macro" class="icon-wrapper" title="Macro (録音/再生)"><div id="icon-macro-img" class="icon macro"></div></div>
+            <div id="icon-macro" class="icon-wrapper"><div id="icon-macro-img" class="icon macro"></div></div>
         </div>
         <div class="header-center"></div>
-        <div class="header-right"></div>
+        <div class="header-right">
+            <div id="icon-help" class="icon-wrapper"><div id="icon-help-img" class="icon help"></div></div>
+        </div>
     </div>
     <div id="sidemenu" class="sidemenu">
         <div class="menuBorder slidebar" id='listBorder'></div>
@@ -84,9 +85,9 @@
 
     </div>
     <div id="editor-footer" class="editor-footer">
-        <div class="editor-footer-left">line:<span id="rectLine"></span>&nbsp;number:<span id="rectNumber"></span>&nbsp;<span id="editorLanguage"></span></div>
+        <div class="editor-footer-left"></div>
         <div class="editor-footer-center"></div>
-        <div class="editor-footer-right"></div>
+        <div class="editor-footer-right">Ln:<span id="rectLine"></span>&nbsp;Col:<span id="rectNumber"></span>&nbsp;<span id="editorLanguage"></span></div>
     </div>
     </body>
     

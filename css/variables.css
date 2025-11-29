@@ -19,6 +19,10 @@
   --background-color: rgb(153, 153, 153); ;
   --border-color: var(--background-color);
 
+  --selected-color: rgb(0, 90, 156);
+  --selected-hover-color: rgb(0, 90, 156, 0.5);
+
+  
 }
 
 * {

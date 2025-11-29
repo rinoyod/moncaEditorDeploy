@@ -60,3 +60,12 @@
     background-color: rgba(238, 104, 250, 0.2) !important;
     border: 1px solid rgba(238, 104, 250, 0.6) !important;
 }
+
+/* カーソルの色 */
+.monaco-editor .cursors-layer .cursor{
+		background-color: var(--selected-color) !important;
+}
+
+.monaco-editor .margin .line-numbers.active-line-number {
+	font-weight: bold !important;
+}

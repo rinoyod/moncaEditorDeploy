@@ -106,27 +106,7 @@
     background-repeat: no-repeat; */
 }
 
-/* 録音中やアクティブ状態の見た目（カラーバージョン） */
-.icon.macro.recording {
-    background-image: url('../img/icon/muluti-color/play-one.svg');
-}
-
-/* 任意：録音中にアニメーションさせたい場合の例 */
-.icon.macro.recording::after {
-    content: "";
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    /* 半透明のエフェクト */
-    box-shadow: 0 0 0 rgba(255, 0, 0, 0.4);
-    animation: macro-pulse 1.2s infinite;
-    pointer-events: none;
-    opacity: 0.25;
-}
-
-@keyframes macro-pulse {
-    0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255,0,0,0.4); }
-    70% { transform: scale(1.2); box-shadow: 0 0 0 10px rgba(255,0,0,0); }
-    100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255,0,0,0); }
+/* ヘルプ */
+.icon.help {
+    background-image: url('../img/icon/line/help.svg');
 }

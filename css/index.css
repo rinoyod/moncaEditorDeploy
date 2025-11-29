@@ -98,16 +98,17 @@ body::-webkit-scrollbar {  /* Chrome, Safari 対応 */
 
 
 .sidemenu .row:hover{
-    background-color: rgba(94, 124, 255, 0.5);
+    background-color: var(--selected-hover-color);
     cursor: pointer;
 }
 .sidemenu .row.selected{
-    background-color: rgb(94, 124, 255,1);
+    background-color: var(--selected-color);
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 
 .change-check-span{
-    color: rgb(143, 143, 143);
+    /* color: rgb(143, 143, 143); */
     font-size: 0.6rem;
 }
 
